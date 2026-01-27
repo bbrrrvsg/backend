@@ -1,0 +1,6 @@
+package DAY06.종합.종합과제1;
+
+public class Waiting {
+    String phone;
+    int count;
+}
