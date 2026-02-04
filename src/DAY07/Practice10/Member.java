@@ -1,4 +1,4 @@
-package DAY07.Exam1.Practice10;
+package DAY07.Practice10;
 
 public class Member {
     private String id;

@@ -52,7 +52,7 @@ create table orders(
 	order_id bigint auto_increment,
     constraint primary key(order_id),
     member_id int ,
-    constraint foreign key(member_id) references members(member_id),
+    constraint foreign key(member_id) references members(member_id) on update cascade on delete cascade,
     order_date datetime default now(),
     total_price int unsigned not null 
 );
@@ -70,9 +70,9 @@ create table order_items(
 	item_id int auto_increment,
     constraint primary key(item_id),
     order_id bigint,
-    constraint foreign key(order_id) references orders(order_id),
+    constraint foreign key(order_id) references orders(order_id)on update cascade on delete cascade,
     product_id int ,
-    constraint foreign key(product_id) references products(product_id),
+    constraint foreign key(product_id) references products(product_id)on update cascade on delete cascade,
     quantity int default 1,
     price int unsigned not null
 );
@@ -130,7 +130,7 @@ create table boards(
     title varchar(200) not null,
     content text not null,
     writer_id  int,
-    constraint foreign key(writer_id) references members(member_id),
+    constraint foreign key(writer_id) references members(member_id)on update cascade on delete cascade,
     created_at datetime default now()
 ); 
 
@@ -148,9 +148,9 @@ create table comments(
 	comment_id int auto_increment,
     constraint primary key(comment_id),
     board_id int ,
-    constraint foreign key(board_id) references boards(board_id),
+    constraint foreign key(board_id) references boards(board_id)on update cascade on delete cascade,
     writer_id int ,
-    constraint foreign key(writer_id) references members(member_id),
+    constraint foreign key(writer_id) references members(member_id)on update cascade on delete cascade,
     content varchar(300) not null,
     created_at datetime default now()
 );
@@ -169,7 +169,7 @@ create table payments(
 	payment_id bigint auto_increment,
     constraint primary key(payment_id),
     order_id bigint ,
-    constraint foreign key(order_id) references orders(order_id),
+    constraint foreign key(order_id) references orders(order_id)on update cascade on delete cascade,
     payment_amount int unsigned not null,
 	payment_method varchar(30),
 	payment_date datetime default now()
@@ -191,9 +191,9 @@ create table reviews(
 	review_id int auto_increment,
     constraint primary key(review_id),
     product_id int,
-    constraint foreign key(product_id) references products(product_id),
+    constraint foreign key(product_id) references products(product_id)on update cascade on delete cascade,
     member_id int,
-    constraint foreign key(member_id) references members(member_id),
+    constraint foreign key(member_id) references members(member_id)on update cascade on delete cascade,
     rating tinyint unsigned not null,
     review_text text,
     created_at datetime default now()

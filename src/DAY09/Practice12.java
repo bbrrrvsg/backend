@@ -36,20 +36,35 @@ public class Practice12 {
 
 
         //7
-        Beverage[] b = new Beverage[2];
+
+        Beverage[] b = {new coffee(),new coke()};
 
         for(int i=0; i<b.length; i++){
-            b[i] = new
+            b[i].drink();
         }
 
+        //8
+        Sword sword =new Sword();
+        Gun gun = new Gun();
+
+        Character character = new Character();
+        character.use(gun);
+        character.use(sword);
 
 
+        //9
+        SuperClass obj = new SubClass();
+        System.out.println(obj.name);
+        obj.method();; // 부모 타입이기때문에
+        // 부모의 이름이 나왔지만 메소드는 오버라이딩 우선이라 자식 메소드출력
 
 
+        //10
+        Laptop laptop = new Laptop();
 
-
-
-
+        System.out.println(laptop instanceof Eletronic);
+        System.out.println(laptop instanceof Device);
+        // 가능
 
 
 
@@ -130,3 +145,42 @@ class coffee extends Beverage{
         System.out.println("커피를 마십니다");
     }
 }
+
+class Weapon{
+    void attack(){
+        System.out.println("무기 공격");
+    }
+}
+class Sword extends Weapon{
+    void attack(){
+        System.out.println("검 공격");
+    }
+}
+class Gun extends Weapon{
+    void attack(){
+        System.out.println("총 공격");
+    }
+}
+class Character{
+    void use(Weapon weapon){
+        weapon.attack();
+    }
+
+}
+
+class SuperClass{
+    String name = "상위";
+    void method(){
+        System.out.println("상위 메소드 출력");
+    }
+}
+class SubClass extends SuperClass{
+    String name ="하위";
+    void method(){
+        System.out.println("하위 메소드 출력");
+    }
+}
+
+class Device{}
+class Eletronic extends Device{}
+class Laptop extends Eletronic{}

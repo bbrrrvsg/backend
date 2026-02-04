@@ -18,7 +18,8 @@ public class boardService2 {
             System.out.println("1.쓰기 2. 출력");
             System.out.println("==============================");
             Scanner sc = new Scanner(System.in);
-            int ch = sc.nextInt();
+            int ch = sc.nextInt();sc.nextLine();
+
             if(ch ==1 ){
                 System.out.print("내용 : "); String content = sc.nextLine();
                 System.out.print("작성자 : "); String writer = sc.nextLine();

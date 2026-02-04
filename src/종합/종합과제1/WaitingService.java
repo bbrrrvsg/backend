@@ -1,4 +1,4 @@
-package DAY06.종합.종합과제1;
+package 종합.종합과제1;
 
 import java.util.Scanner;
 
