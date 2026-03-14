@@ -25,7 +25,7 @@ CREATE TABLE orders (
     order_qty    INT NOT NULL,                   -- 주문수량
     order_date   DATE,                           -- 주문일
     CONSTRAINT PRIMARY KEY (order_id),         -- 기본키 제약조건
-    CONSTRAINT FOREIGN KEY (book_id) REFERENCES books(book_id) -- 외래키 제약조건
+    CONSTRAINT FOREIGN KEY (book_id) REFERENCES books(book_id) on delete cascade -- 외래키 제약조건
 );
 
 -- 샘플 데이터 삽입
@@ -156,3 +156,5 @@ select title , author from books where title like '%자%';
 
 -- [문제 20] books 테이블에서 저자(author)가 '김'으로 시작하는 3글자인 도서의 title, author를 조회하세요. (LIKE '김__' 사용)
 select title,author from books where author like '김__';
+
+

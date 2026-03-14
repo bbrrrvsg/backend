@@ -1,7 +1,7 @@
 create database mydb0203;
 use mydb0203;
 
--- [1] 체이블 생성 
+-- [1] 테이블 생성 
 -- create table 테이블명(속성명 타입 제약조건 , 속성명 타입 제약조건)
 create table test1(속성명 int);
 
